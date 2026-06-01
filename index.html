@@ -381,6 +381,16 @@
       padding: 30px;
       transition: transform 0.5s ease;
     }
+    .product-card-image img[data-broken] {
+      display: none;
+    }
+    .img-placeholder {
+      display: none; flex-direction: column; align-items: center; justify-content: center;
+      width: 100%; height: 100%; gap: 12px;
+    }
+    .img-placeholder.show { display: flex; }
+    .img-placeholder span { font-size: 3.5rem; }
+    .img-placeholder p { font-size: 0.8rem; color: var(--gray); font-weight: 500; }
     .product-card:hover .product-card-image img {
       transform: scale(1.08) translateY(-4px);
     }
@@ -846,7 +856,7 @@
 <!-- ─── NAVBAR ─── -->
 <nav id="navbar">
   <a href="#" class="nav-logo">
-    <img src="images/logo.png" alt="Dermec Logo" />
+    <img src="images/logo.png" alt="Dermec Logo" onerror="this.style.display='none'" />
     <span class="nav-logo-text">Dermec</span>
   </a>
   <ul class="nav-links" id="navLinks">
@@ -947,9 +957,10 @@
   <div class="products-grid">
     <!-- Product 1: Kidz Bar -->
     <div class="product-card reveal reveal-delay-1">
-      <div class="product-card-image">
-        <img src="images/kidz-bar.jpg" alt="Dermec Kidz Bathing Bar" />
+      <div class="product-card-image" style="background:linear-gradient(135deg,#f0faf2,#e8f7ec)">
+        <img src="images/kidz-bar.jpg" alt="Dermec Kidz Bathing Bar" onerror="this.setAttribute('data-broken','1');this.nextElementSibling.nextElementSibling.classList.add('show')" />
         <div class="product-badge badge-baby">Kidz Care</div>
+        <div class="img-placeholder"><span>🧼</span><p>Dermec Kidz Bar</p></div>
       </div>
       <div class="product-card-body">
         <h3 class="product-name">Dermec Kidz Bathing Bar</h3>
@@ -968,9 +979,10 @@
     </div>
     <!-- Product 2: Massage Oil -->
     <div class="product-card reveal reveal-delay-2">
-      <div class="product-card-image">
-        <img src="images/massage-oil.jpg" alt="Dermec Baby Massage Oil" />
+      <div class="product-card-image" style="background:linear-gradient(135deg,#fff8ee,#fef3e2)">
+        <img src="images/massage-oil.jpg" alt="Dermec Baby Massage Oil" onerror="this.setAttribute('data-broken','1');this.nextElementSibling.nextElementSibling.classList.add('show')" />
         <div class="product-badge badge-baby">Baby Care</div>
+        <div class="img-placeholder"><span>🫧</span><p>Baby Massage Oil</p></div>
       </div>
       <div class="product-card-body">
         <h3 class="product-name">Dermec Baby Massage Oil</h3>
@@ -999,8 +1011,9 @@
   </div>
   <div class="adult-showcase">
     <div class="adult-image-wrap reveal-left">
-      <div class="adult-product-img">
-        <img src="images/adult-soap.jpg" alt="Dermec Skin Care Soap" />
+      <div class="adult-product-img" style="background:linear-gradient(135deg,#f0f4ff,#e8eeff)">
+        <img src="images/adult-soap.jpg" alt="Dermec Skin Care Soap" onerror="this.setAttribute('data-broken','1');this.nextElementSibling.classList.add('show')" style="width:100%;height:100%;object-fit:contain" />
+        <div class="img-placeholder"><span>🧴</span><p>Dermec Skin Care Soap</p></div>
       </div>
     </div>
     <div class="adult-content reveal-right">
@@ -1075,7 +1088,7 @@
   <div class="about-inner">
     <div class="about-logo-wrap reveal-left">
       <div class="about-logo">
-        <img src="images/logo.png" alt="Dermec Logo" />
+        <img src="images/logo.png" alt="Dermec Logo" onerror="this.style.display='none'" />
       </div>
       <p class="about-tagline-big">"Trusted by Dermatologists.<br/>Loved by Families."</p>
     </div>
